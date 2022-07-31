@@ -24,7 +24,7 @@ describe("Helpers test (with setup and tear-down)", function() {
 
   });
 
-  it('should append payment table using appendPaymentTable()', function () {
+  it('should append payment table using appendtd()', function () {
     
     let temp = document.createElement('tr');
     temp.id = 'testID'
@@ -32,6 +32,17 @@ describe("Helpers test (with setup and tear-down)", function() {
     paymentTbody.append(temp);
     console.log(document.getElementById('testID').children[0]);
     expect(document.getElementById('testID').children[0].innerText).toEqual('test');
+    document.getElementById('testID').remove();
+  });
+
+  it('should add delete button using appendDeleteBtn()', function () {
+    
+    let temp = document.createElement('tr');
+    temp.id = 'testID'
+    appendDeleteBtn(temp)
+    serverTbody.append(temp);
+    console.log(document.getElementById('testID').children[0]);
+    expect(document.getElementById('testID').children[0].innerText).toEqual('X');
     document.getElementById('testID').remove();
   });
 });
